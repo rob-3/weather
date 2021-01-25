@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rob-3/weather/issues"
   },
-  "homepage": "https://github.com/rob-3/weather#readme"
+  "homepage": "https://github.com/rob-3/weather#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

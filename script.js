@@ -2,8 +2,9 @@ const div = document.getElementById("data");
 const button = document.getElementById("button");
 const searchBox = document.getElementById("search");
 
-const url0 = "https://www.metaweather.com/api/location/search/?query="
-const url1 = "https://www.metaweather.com/api/location/"
+const proxy = "https://cors-anywhere.herokuapp.com/";
+const url1 = proxy + "https://www.metaweather.com/api/location/search/?query="
+const url2 = proxy + "https://www.metaweather.com/api/location/"
 
 button.addEventListener("click", handler);
 searchBox.addEventListener("keypress", e => {
@@ -15,11 +16,12 @@ searchBox.addEventListener("keypress", e => {
 function handler() {
   div.innerHTML = "Loading...";
   const search = searchBox.value;
-  fetch(url0 + search)
+  fetch(url1 + search)
     .then(b => b.json())
     .then(data => {
+      console.log(data);
       const woeid = data[0].woeid;
-      fetch(url1 + woeid)
+      fetch(url2 + woeid)
         .then(b => b.json())
         .then(realData => {
           const today = realData.consolidated_weather[0];
