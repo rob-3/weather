@@ -2,8 +2,8 @@ const div = document.getElementById("data");
 const button = document.getElementById("button");
 const searchBox = document.getElementById("search");
 
-const url0 = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query="
-const url1 = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/"
+const url0 = "https://www.metaweather.com/api/location/search/?query="
+const url1 = "https://www.metaweather.com/api/location/"
 
 button.addEventListener("click", handler);
 searchBox.addEventListener("keypress", e => {
@@ -28,8 +28,9 @@ function handler() {
                             Low: ${toFarenheit(today.min_temp)}°F`;
         });
     })
-    .catch(() => {
+    .catch(err => {
       div.innerHTML = "Error!"
+      console.log(err);
     });
 }
 
