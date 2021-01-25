@@ -6,10 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rob-3/weather.git"
+  },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^6.6.0"
-  }
+  "license": "BSD-2-Clause-Patent",
+  "bugs": {
+    "url": "https://github.com/rob-3/weather/issues"
+  },
+  "homepage": "https://github.com/rob-3/weather#readme"
 }
