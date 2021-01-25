@@ -13,27 +13,22 @@ searchBox.addEventListener("keypress", e => {
   }
 });
 
-function handler() {
+async function handler() {
   div.innerHTML = "Loading...";
   const search = searchBox.value;
-  fetch(url1 + search)
-    .then(b => b.json())
-    .then(data => {
-      console.log(data);
-      const woeid = data[0].woeid;
-      fetch(url2 + woeid)
-        .then(b => b.json())
-        .then(realData => {
-          const today = realData.consolidated_weather[0];
-          div.innerHTML = `Weather: ${today.weather_state_name}<br>
-                            High: ${toFarenheit(today.max_temp)}°F<br>
-                            Low: ${toFarenheit(today.min_temp)}°F`;
-        });
-    })
-    .catch(err => {
+  try {
+    const data = await fetch(url1 + search).then(b => b.json());
+    console.log(data);
+    const woeid = data[0].woeid;
+    const realData = await fetch(url2 + woeid).then(b => b.json());
+    const today = realData.consolidated_weather[0];
+    div.innerHTML = `Weather: ${today.weather_state_name}<br>
+                      High: ${toFarenheit(today.max_temp)}°F<br>
+                      Low: ${toFarenheit(today.min_temp)}°F`;
+  } catch (err) {
       div.innerHTML = "Error!"
       console.log(err);
-    });
+  }
 }
 
 function toFarenheit(celcius) {
