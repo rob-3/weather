@@ -1,6 +1,6 @@
-const div = document.getElementById("data");
-const button = document.getElementById("button");
-const searchBox = document.getElementById("search");
+const div = document.querySelector("#data");
+const button = document.querySelector("#button");
+const searchBox = document.querySelector("#search");
 
 const proxy = "https://cors-anywhere.herokuapp.com/";
 const url1 = proxy + "https://www.metaweather.com/api/location/search/?query="
